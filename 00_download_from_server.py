@@ -2,7 +2,7 @@ from cmx import doc
 from ml_logger import ML_Logger
 
 doc @ """
-# Download Data from Server
+# 0. Download Data from Server
 
 You can directly read from the server, which is the standard use-flow. We
 download the data here so that you can process the data locally.

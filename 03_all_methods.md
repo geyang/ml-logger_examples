@@ -1,5 +1,5 @@
 
-# Facet and Grouping
+# 3. Facet and Grouping
 
 Here we show the learning curve from multiple methods, on the same domain.
 
@@ -42,9 +42,9 @@ for method in ['curl', 'rad', 'pad', 'soda']:
         plt.legend(frameon=False)
         plt.ylim(0, 1000)
 
-    r.savefig(f"figures/{method}/train_vs_eval.png?ts={doc.now()}", title=method.capitalize(), dpi=300)
+    r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300)
 ```
 
 | **Curl** | **Rad** | **Pad** | **Soda** |
 |:--------:|:-------:|:-------:|:--------:|
-| <img style="align-self:center;" src="figures/curl/train_vs_eval.png?ts=2021-03-19 17:19:03.497686-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/rad/train_vs_eval.png?ts=2021-03-19 17:19:04.131522-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/pad/train_vs_eval.png?ts=2021-03-19 17:19:04.556473-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/soda/train_vs_eval.png?ts=2021-03-19 17:19:04.775786-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/soda/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |

@@ -32,6 +32,6 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
     plt.plot(step.to_list(), avg.to_list())
     plt.fill_between(step, bottom, top, alpha=0.15)
 
-    r.savefig(f"figures/learning_curve.png?ts={doc.now()}", title="Learning Curve", dpi=300)
+    r.savefig(f"figures/learning_curve.png", title="Learning Curve", dpi=300)
 
 doc.flush()

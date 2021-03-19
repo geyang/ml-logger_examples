@@ -3,7 +3,7 @@ from cmx import doc
 from ml_logger import ML_Logger, BinOptions
 
 doc @ """
-# Comparing Two Learning Curves Side-by-side
+# 2. Comparing Two Learning Curves Side-by-side
 
 Here we compare the training performance versus the performance 
 on the evaluation domain.
@@ -37,6 +37,6 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
     group(yKey="train/episode_reward/mean", color=colors[1], label="Train")
     plt.legend(frameon=False)
 
-    r.savefig(f"figures/train_vs_eval.png?ts={doc.now()}", title="Train VS Eval", dpi=300)
+    r.savefig(f"figures/train_vs_eval.png", title="Train VS Eval", dpi=300)
 
 doc.flush()

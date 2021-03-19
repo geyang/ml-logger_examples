@@ -1,26 +1,13 @@
+# Data Analysis and Visualization with ML-Logger API
 
-# Loading and Plotting Learning Curves
+This repo contains live examples for analyzing and visualizing learning curves using the ML-Logger `read_metrics` API. 
 
+1. [**Loading and Plotting A Single Learning Curve**](01_read_metrics.md)   
+2. [**Comparing Two Learning Curves Side-by-side**](02_train_vs_eval.md)   
+3. [**Facet and Grouping**](03_all_methods.md)   
+4. [**Results Over All Domains**](04_all_domains.md)   
 
-Initialize the loader
-```python
-loader = ML_Logger("http://improbable005.csail.mit.edu:8080", prefix=PREFIX)
-```
-Check all the files
-```python
-files = loader.glob(query="**/metrics.pkl", wd=".", recursive=True)
-doc.print(files)
-```
+## Appendix
 
-```
-['400/metrics.pkl', '100/metrics.pkl', '300/metrics.pkl', '200/metrics.pkl']
-```
-Step 1: load the data
-```python
-step, avg, top, bottom = loader.read_metrics("step",
-                                             "train/episode_reward/mean",
-                                             "train/episode_reward/mean@95%",
-                                             "train/episode_reward/mean@5%",
-                                             path="**/metrics.pkl",
-                                             bin=BinOptions(key="step", size=40))
-```
+1. [**Download from Server**](00_download_from_server.md)
+

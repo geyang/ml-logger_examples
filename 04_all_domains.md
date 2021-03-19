@@ -1,5 +1,5 @@
 
-# Results Over All Domains
+# 4. Results Over All Domains
 
 
 
@@ -41,26 +41,26 @@ for domain in ['walker-walk', 'cartpole-swingup', 'ball_in_cup-catch', 'finger-s
                 plt.legend(frameon=False)
                 plt.ylim(0, 1000)
 
-            r.savefig(f"figures/{name}/{method}/train_vs_eval.png?ts={doc.now()}",
+            r.savefig(f"figures/{name}/{method}/train_vs_eval.png",
                       title=method.capitalize(), dpi=300)
 ```
 
 Walker [walk]
 | **Curl** | **Rad** | **Pad** | **Soda** |
 |:--------:|:-------:|:-------:|:--------:|
-| <img style="align-self:center;" src="figures/walker/curl/train_vs_eval.png?ts=2021-03-19 17:22:50.785424-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/rad/train_vs_eval.png?ts=2021-03-19 17:22:51.401690-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/pad/train_vs_eval.png?ts=2021-03-19 17:22:51.809451-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/soda/train_vs_eval.png?ts=2021-03-19 17:22:52.007075-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/walker/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/walker/soda/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
 
 Cartpole [swingup]
 | **Curl** | **Rad** | **Pad** | **Soda** |
 |:--------:|:-------:|:-------:|:--------:|
-| <img style="align-self:center;" src="figures/cartpole/curl/train_vs_eval.png?ts=2021-03-19 17:22:52.721430-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/rad/train_vs_eval.png?ts=2021-03-19 17:22:53.314350-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/pad/train_vs_eval.png?ts=2021-03-19 17:22:53.839652-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/soda/train_vs_eval.png?ts=2021-03-19 17:22:54.073355-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/cartpole/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/cartpole/soda/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
 
 Ball In Cup [catch]
 | **Curl** | **Rad** | **Pad** | **Soda** |
 |:--------:|:-------:|:-------:|:--------:|
-| <img style="align-self:center;" src="figures/ball_in_cup/curl/train_vs_eval.png?ts=2021-03-19 17:22:54.552393-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/rad/train_vs_eval.png?ts=2021-03-19 17:22:55.106945-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/pad/train_vs_eval.png?ts=2021-03-19 17:22:55.753762-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/soda/train_vs_eval.png?ts=2021-03-19 17:22:55.987722-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/ball_in_cup/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/ball_in_cup/soda/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
 
 Finger [spin]
 | **Curl** | **Rad** | **Pad** | **Soda** |
 |:--------:|:-------:|:-------:|:--------:|
-| <img style="align-self:center;" src="figures/finger/curl/train_vs_eval.png?ts=2021-03-19 17:22:56.180530-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/rad/train_vs_eval.png?ts=2021-03-19 17:22:56.384058-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/pad/train_vs_eval.png?ts=2021-03-19 17:22:56.585852-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/soda/train_vs_eval.png?ts=2021-03-19 17:22:56.756618-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/finger/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/finger/soda/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |

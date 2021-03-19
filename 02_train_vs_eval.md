@@ -1,5 +1,5 @@
 
-# Comparing Two Learning Curves Side-by-side
+# 2. Comparing Two Learning Curves Side-by-side
 
 Here we compare the training performance versus the performance 
 on the evaluation domain.
@@ -40,9 +40,9 @@ group(yKey="episode_reward/mean", color=colors[0], bins=None, label="Eval")
 group(yKey="train/episode_reward/mean", color=colors[1], label="Train")
 plt.legend(frameon=False)
 
-r.savefig(f"figures/train_vs_eval.png?ts={doc.now()}", title="Train VS Eval", dpi=300)
+r.savefig(f"figures/train_vs_eval.png", title="Train VS Eval", dpi=300)
 ```
 
 | **Train VS Eval** |
 |:-----------------:|
-| <img style="align-self:center;" src="figures/train_vs_eval.png?ts=2021-03-19 17:13:40.825776-04:00" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center;" src="figures/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |

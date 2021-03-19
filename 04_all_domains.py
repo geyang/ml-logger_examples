@@ -3,7 +3,7 @@ from cmx import doc
 from ml_logger import ML_Logger, BinOptions
 
 doc @ """
-# Results Over All Domains
+# 4. Results Over All Domains
 
 
 
@@ -42,7 +42,7 @@ with doc @ "Step 2: Plot":
                     plt.legend(frameon=False)
                     plt.ylim(0, 1000)
 
-                r.savefig(f"figures/{name}/{method}/train_vs_eval.png?ts={doc.now()}",
+                r.savefig(f"figures/{name}/{method}/train_vs_eval.png",
                           title=method.capitalize(), dpi=300)
 
 doc.flush()

@@ -3,7 +3,7 @@ from cmx import doc
 from ml_logger import ML_Logger, BinOptions
 
 doc @ """
-# Loading and Plotting A Single Learning Curve
+# 1. Loading and Plotting A Single Learning Curve
 
 Here is a simple example, showing how to load a single learning curve with
 95% confidence range using `logger.read_metrics` call.
@@ -34,6 +34,6 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
     plt.plot(step.to_list(), avg.to_list())
     plt.fill_between(step, bottom, top, alpha=0.15)
 
-    r.savefig(f"figures/learning_curve.png?ts={doc.now()}", title="Learning Curve", dpi=300)
+    r.savefig(f"figures/learning_curve.png", title="Learning Curve", dpi=300)
 
 doc.flush()

@@ -3,7 +3,7 @@ from cmx import doc
 from ml_logger import ML_Logger, BinOptions
 
 doc @ """
-# Facet and Grouping
+# 3. Facet and Grouping
 
 Here we show the learning curve from multiple methods, on the same domain.
 
@@ -39,6 +39,6 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
             plt.legend(frameon=False)
             plt.ylim(0, 1000)
 
-        r.savefig(f"figures/{method}/train_vs_eval.png?ts={doc.now()}", title=method.capitalize(), dpi=300)
+        r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300)
 
 doc.flush()
