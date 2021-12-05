@@ -1,8 +1,9 @@
 import os
 
 import matplotlib.pyplot as plt
-from matplotlib import ticker
 from cmx import doc
+from matplotlib import ticker
+
 from ml_logger import ML_Logger
 
 doc @ """
@@ -31,9 +32,10 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
 
     plt.figure()
 
-    plt.plot(step, avg.to_list())
-    plt.fill_between(step, bottom, top, alpha=0.15)
-    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f"{int(x/1000)}k" if x else "0"))
+    plt.plot(step, avg.to_list(), color="#23aaff")
+    plt.fill_between(step, bottom, top, color="#23aaff", alpha=0.15)
+
+    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f"{int(x / 1000)}k" if x else "0"))
     plt.title(title)
     plt.xlabel("Steps")
     plt.ylabel("Return")
