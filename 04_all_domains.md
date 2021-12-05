@@ -1,7 +1,5 @@
 
-# 4. Results Over All Domains
-
-
+# Results Over All Domains
 
 
 Initialize the loader

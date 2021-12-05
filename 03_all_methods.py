@@ -1,9 +1,11 @@
+import os
+
 import matplotlib.pyplot as plt
 from cmx import doc
-from ml_logger import ML_Logger, BinOptions
+from ml_logger import ML_Logger
 
 doc @ """
-# 3. Facet and Grouping
+# Facet and Grouping
 
 Here we show the learning curve from multiple methods, on the same domain.
 
@@ -11,7 +13,7 @@ We typically arrange the data with a folder structure `f"{domain}/{method}/{seed
 """
 
 with doc @ """Initialize the loader""":
-    loader = ML_Logger(prefix="data/walker-walk")
+    loader = ML_Logger(root=os.getcwd(), prefix="data/walker-walk")
 
 with doc @ """Check all the files""":
     files = loader.glob(query="**/metrics.pkl", wd=".", recursive=True)
@@ -19,10 +21,8 @@ with doc @ """Check all the files""":
 
 with doc @ """Plotting A Single Time Series""":
     def group(xKey="step", yKey="train/episode_reward/mean", color=None, bins=40, label=None):
-        if bins:
-            bins = BinOptions(key=xKey, size=bins)
-        step, avg, top, bottom = loader.read_metrics(xKey, yKey, yKey + "@95%", yKey + "@5%",
-                                                     path="**/metrics.pkl", bin=bins)
+        avg, top, bottom, step, = loader.read_metrics(yKey + "@mean", yKey + "@95%", yKey + "@5%", x_key=xKey + "@mean",
+                                                      path="**/metrics.pkl", bin_size=bins)
         plt.plot(step.to_list(), avg.to_list(), color=color, label=label)
         plt.fill_between(step, bottom, top, alpha=0.15, color=color)
 

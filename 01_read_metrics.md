@@ -1,5 +1,5 @@
 
-# 1. Loading and Plotting A Single Learning Curve
+# Loading and Plotting A Single Learning Curve
 
 Here is a simple example, showing how to load a single learning curve with
 95% confidence range using `logger.read_metrics` call.
@@ -8,7 +8,7 @@ The plotting code is minimal to keep it simple.
 
 Initialize the loader
 ```python
-loader = ML_Logger(prefix="data/walker-walk/curl")
+loader = ML_Logger(root=os.getcwd(), prefix="data/walker-walk/curl")
 ```
 Check all the files
 ```python
@@ -21,25 +21,29 @@ doc.print(files)
 ```
 Step 1: load the data
 ```python
-step, avg, top, bottom = loader.read_metrics("step",
-                                             "train/episode_reward/mean",
-                                             "train/episode_reward/mean@95%",
-                                             "train/episode_reward/mean@5%",
+avg, top, bottom, step = loader.read_metrics("train/episode_reward/mean@mean",
+                                             "train/episode_reward/mean@84%",
+                                             "train/episode_reward/mean@16%",
+                                             x_key="step@mean",
                                              path="**/metrics.pkl",
-                                             bin=BinOptions(key="step", size=40))
+                                             bin_size=40)
 ```
 Step 2: Plot
 ```python
-title = "CURL"
+title = "CURL on Walker-walk"
 
-plt.figure(figsize=(3, 2))
+plt.figure()
 
-plt.plot(step.to_list(), avg.to_list())
+plt.plot(step, avg.to_list())
 plt.fill_between(step, bottom, top, alpha=0.15)
+plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f"{int(x/1000)}k" if x else "0"))
+plt.title(title)
+plt.xlabel("Steps")
+plt.ylabel("Return")
 
-r.savefig(f"figures/learning_curve.png", title="Learning Curve", dpi=300)
+r.savefig(f"figures/learning_curve.png", title=title, dpi=300, zoom="20%")
 ```
 
-| **Learning Curve** |
-|:------------------:|
-| <img style="align-self:center;" src="figures/learning_curve.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| **CURL on Walker-walk** |
+|:-----------------------:|
+| <img style="align-self:center; zoom:20%;" src="figures/learning_curve.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |

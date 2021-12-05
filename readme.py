@@ -17,12 +17,8 @@ with doc @ """Check all the files""":
     doc.print(files)
 
 with doc @ """Step 1: load the data""":
-    step, avg, top, bottom = loader.read_metrics("step",
-                                                 "train/episode_reward/mean",
-                                                 "train/episode_reward/mean@95%",
-                                                 "train/episode_reward/mean@5%",
-                                                 path="**/metrics.pkl",
-                                                 bin=BinOptions(key="step", size=40))
+    step, avg, top, bottom = loader.read_metrics("step", "train/episode_reward/mean", "train/episode_reward/mean@95%",
+                                                 "train/episode_reward/mean@5%", path="**/metrics.pkl")
 
 with doc @ "Step 2: Plot", doc.table().figure_row() as r:
     title = "CURL"

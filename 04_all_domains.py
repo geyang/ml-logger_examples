@@ -1,26 +1,25 @@
+import os
+
 import matplotlib.pyplot as plt
 from cmx import doc
-from ml_logger import ML_Logger, BinOptions
+from ml_logger import ML_Logger
 
 doc @ """
-# 4. Results Over All Domains
-
-
+# Results Over All Domains
 
 """
 
 with doc @ """Initialize the loader""":
-    loader = ML_Logger(prefix="data")
+    loader = ML_Logger(root=os.getcwd(), prefix="data")
 
 with doc @ """Check all the files""":
     files = loader.glob(query="**/metrics.pkl", wd=".", recursive=True)
 
 with doc @ """Plotting A Single Time Series""":
-    def group(xKey="step", yKey="train/episode_reward/mean", color=None, bins=40, label=None):
-        if bins:
-            bins = BinOptions(key=xKey, size=bins)
-        step, avg, top, bottom = loader.read_metrics(xKey, yKey, yKey + "@95%", yKey + "@5%",
-                                                     path="**/metrics.pkl", bin=bins)
+    def group(xKey="step", yKey="train/episode_reward/mean", color=None, bin_size=40,
+              label=None):
+        avg, top, bottom, step = loader.read_metrics(yKey + "@mean", yKey + "@68%", yKey + "@33%", x_key=xKey + "@mean",
+                                                     path="**/metrics.pkl", bin_size=bin_size)
         plt.plot(step.to_list(), avg.to_list(), color=color, label=label)
         plt.fill_between(step, bottom, top, alpha=0.15, color=color)
 
@@ -37,7 +36,7 @@ with doc @ "Step 2: Plot":
                 plt.figure(figsize=(3, 2))
 
                 with loader.Prefix(method):
-                    group(yKey="episode_reward/mean", color=colors[0], bins=None, label="Eval")
+                    group(yKey="episode_reward/mean", color=colors[0], bin_size=None, label="Eval")
                     group(yKey="train/episode_reward/mean", color=colors[1], label="Train")
                     plt.legend(frameon=False)
                     plt.ylim(0, 1000)
