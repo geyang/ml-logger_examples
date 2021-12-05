@@ -1,10 +1,4 @@
-import os
-
-import matplotlib.pyplot as plt
 from cmx import doc
-from matplotlib import ticker
-
-from ml_logger import ML_Logger
 
 doc @ """
 # Loading and Plotting A Single Learning Curve
@@ -14,8 +8,13 @@ Here is a simple example, showing how to load a single learning curve with
 
 The plotting code is minimal to keep it simple.
 """
+with doc @ """Import the CommonMark X module""":
+    from cmx import doc
+    from ml_logger import ML_Logger
 
 with doc @ """Initialize the loader""":
+    import os
+
     loader = ML_Logger(root=os.getcwd(), prefix="data/walker-walk/curl")
 
 with doc @ """Check all the files""":
@@ -28,6 +27,9 @@ with doc @ """Step 1: load the data""":
                                                  path="**/metrics.pkl", bin_size=40)
 
 with doc @ "Step 2: Plot", doc.table().figure_row() as r:
+    import matplotlib.pyplot as plt
+    from matplotlib import ticker
+
     title = "CURL on Walker-walk"
 
     plt.figure()
@@ -41,5 +43,18 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
     plt.ylabel("Return")
 
     r.savefig(f"figures/learning_curve.png", title=title, dpi=300, zoom="20%")
+
+doc @ """
+## How Come The Figure Looks So Good?
+
+This is because we place the following file: [./matplotlibrc](./matplotlibrc) inside
+this folder. This file contains the following styling options:
+
+```python
+"""
+doc @ loader.load_text("../../../matplotlibrc")
+"""
+```
+"""
 
 doc.flush()

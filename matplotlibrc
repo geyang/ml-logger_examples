@@ -45,9 +45,6 @@ legend.handleheight  : 0
 legend.handletextpad : 0.5
 
 #axes.color_cycle    : b, g, r, c, m, y, k  # color cycle for plot lines
-                                            # as list of string colorspecs:
-                                            # single letter, long name, or
-                                            # web-style hex
 
 ### TICKS
 # see http://matplotlib.org/api/axis_api.html#matplotlib.axis.Tick
