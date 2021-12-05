@@ -1,5 +1,5 @@
 
-# 3. Facet and Grouping
+# Facet and Grouping
 
 Here we show the learning curve from multiple methods, on the same domain.
 
@@ -7,7 +7,7 @@ We typically arrange the data with a folder structure `f"{domain}/{method}/{seed
 
 Initialize the loader
 ```python
-loader = ML_Logger(prefix="data/walker-walk")
+loader = ML_Logger(root=os.getcwd(), prefix="data/walker-walk")
 ```
 Check all the files
 ```python
@@ -20,13 +20,12 @@ doc.print(files)
 ```
 Plotting A Single Time Series
 ```python
-def group(xKey="step", yKey="train/episode_reward/mean", color=None, bins=40, label=None):
-    if bins:
-        bins = BinOptions(key=xKey, size=bins)
-    step, avg, top, bottom = loader.read_metrics(xKey, yKey, yKey + "@95%", yKey + "@5%",
-                                                 path="**/metrics.pkl", bin=bins)
-    plt.plot(step.to_list(), avg.to_list(), color=color, label=label)
+def group(xKey="step", yKey="train/episode_reward/mean", color=None, bin=10, label=None, dropna=False):
+    avg, top, bottom, step = loader.read_metrics(f"{yKey}@mean", f"{yKey}@84%", f"{yKey}@16%", x_key=f"{xKey}@mean",
+                                                 path="**/metrics.pkl", bin_size=bin, dropna=dropna)
+    plt.plot(step, avg, color=color, label=label)
     plt.fill_between(step, bottom, top, alpha=0.15, color=color)
+    return avg
 ```
 Step 2: Plot
 ```python
@@ -37,7 +36,7 @@ for method in ['curl', 'rad', 'pad', 'soda']:
     plt.figure(figsize=(3, 2))
 
     with loader.Prefix(method):
-        group(yKey="episode_reward/mean", color=colors[0], bins=None, label="Eval")
+        group(yKey="episode_reward/mean", color=colors[0], bin=None, label="Eval")
         group(yKey="train/episode_reward/mean", color=colors[1], label="Train")
         plt.legend(frameon=False)
         plt.ylim(0, 1000)
