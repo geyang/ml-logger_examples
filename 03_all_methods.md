@@ -47,9 +47,9 @@ for method in ['curl', 'rad', 'pad']:
         plt.legend(frameon=False)
         plt.ylim(0, 1000)
 
-    r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300)
+    r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300, zoom="20%")
 ```
 
 | **Curl** | **Rad** | **Pad** |
 |:--------:|:-------:|:-------:|
-| <img style="align-self:center;" src="figures/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center;" src="figures/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |
+| <img style="align-self:center; zoom:20%;" src="figures/curl/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center; zoom:20%;" src="figures/rad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> | <img style="align-self:center; zoom:20%;" src="figures/pad/train_vs_eval.png" image="None" styles="{'margin': '0.5em'}" width="None" height="None" dpi="300"/> |

@@ -42,6 +42,6 @@ with doc @ "Step 2: Plot", doc.table().figure_row() as r:
             plt.legend(frameon=False)
             plt.ylim(0, 1000)
 
-        r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300)
+        r.savefig(f"figures/{method}/train_vs_eval.png", title=method.capitalize(), dpi=300, zoom="20%")
 
 doc.flush()
